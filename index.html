@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoulSound Studio - Your Story, In Song</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy: #1a365d;
+            --light-navy: #2d4a6b;
+            --coral: #ff7a7a;
+            --light-coral: #ff9999;
+            --gold: #ffd700;
+            --cream: #fef7ed;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--navy);
+        }
+
+        .dancing-script {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 50%, var(--coral) 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="20">🎵</text></svg>') repeat;
+            opacity: 0.1;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) translateX(0px); }
+            25% { transform: translateY(-10px) translateX(5px); }
+            50% { transform: translateY(0px) translateX(0px); }
+            75% { transform: translateY(5px) translateX(-5px); }
+            100% { transform: translateY(0px) translateX(0px); }
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--coral);
+            font-weight: 400;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 40px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--coral), var(--light-coral));
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255,122,122,0.3);
+        }
+
+        .btn-secondary {
+            background: var(--navy);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-navy);
+            transform: translateY(-2px);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--coral), var(--gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .testimonial {
+            background: var(--cream);
+            border-left: 5px solid var(--gold);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .rating {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .package-card {
+            border: 3px solid var(--coral);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .package-card:hover {
+            border-color: var(--navy);
+            transform: scale(1.05);
+        }
+
+        .package-popular {
+            border-color: var(--gold);
+            background: linear-gradient(135deg, var(--cream), white);
+        }
+
+        .package-popular::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--navy);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 20px 0;
+        }
+
+        .feature-list {
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--coral);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .blog-post {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            background: white;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-date {
+            background: var(--coral);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .requirement-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--coral);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        footer {
+            background: var(--navy);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-section h3 {
+            color: var(--coral);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .social-icons a {
+            color: var(--coral);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--gold);
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-section {
+                padding: 60px 20px;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .package-card {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-white shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold dancing-script" style="color: var(--navy);">
+                    <i class="fas fa-music" style="color: var(--coral);"></i> SoulSound Studio
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="text-gray-700 hover:text-coral transition">Services</a>
+                    <a href="#about" class="text-gray-700 hover:text-coral transition">About</a>
+                    <a href="#packages" class="text-gray-700 hover:text-coral transition">Packages</a>
+                    <a href="#contact" class="text-gray-700 hover:text-coral transition">Contact</a>
+                </div>
+                <a href="#booking" class="btn-primary">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-xl md:text-2xl mb-4 dancing-script" style="color: var(--gold);">WELCOME TO</h2>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">SOULSOUND STUDIO</h1>
+            <p class="text-xl md:text-2xl mb-8">We make sure your stories will have a <em class="dancing-script" style="color: var(--gold);">soul</em>-stirring melody!</p>
+            <a href="#services" class="btn-primary text-lg">Start Your Musical Journey</a>
+        </div>
+    </section>
+
+    <!-- Your Story's Home in Song -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title">Your Story's Home in Song</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    When you have a special memory, love story, or milestone moment you want to celebrate forever, you want it transformed into something truly magical, right? Well, you've come to the right place!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Offer -->
+    <section id="services" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="section-header">
+                <p class="text-coral font-semibold text-lg mb-2">WHAT WE OFFER</p>
+                <h2 class="section-title">OUR SERVICES</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" style="color: var(--navy);">Custom Songwriting</h3>
+                    <p class="text-gray-600">Transform your personal stories, memories, and emotions into beautiful custom lyrics and melodies.</p>
+                </div>
+                
+                <div class="card text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" style="color: var(--navy);">Professional Recording</h3>
+                    <p class="text-gray-600">High-quality studio recording with professional vocals and instrumental arrangements.</p>
+                </div>
+                
+                <div class="card text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" style="color: var(--navy);">Special Occasion Songs</h3>
+                    <p class="text-gray-600">Perfect for weddings, anniversaries, birthdays, memorials, and other life celebrations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Just Like Home -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6" style="color: var(--navy);">Just like your heart.</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        We offer VIS (Very Important Story) services for music lovers who are looking for a heartfelt, meaningful, and memorable way to express their deepest emotions through song.
+                    </p>
+                    <p class="text-lg text-gray-600">
+                        Just like our passion for creating beautiful music, we'd be happy to craft your story with nothing but the best of musical care and attention to detail.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="w-64 h-64 mx-auto bg-gradient-to-br from-coral to-gold rounded-full flex items-center justify-center">
+                        <i class="fas fa-music text-white text-6xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Your Stories Deserve the Best -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center">
+                    <div class="w-64 h-64 mx-auto bg-gradient-to-br from-navy to-coral rounded-full flex items-center justify-center mb-8">
+                        <i class="fas fa-heart text-white text-6xl"></i>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold mb-6" style="color: var(--navy);">Your stories deserve the best</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        We always aim to provide all our clients with a song that feels like home. We know how much difference it makes to your special moment when the music perfectly captures your emotions and memories. Honestly, our biggest joy is when you can't stop playing your custom song!
+                    </p>
+                    
+                    <h3 class="text-xl font-bold mb-4" style="color: var(--coral);">What to Expect</h3>
+                    <div class="text-lg text-gray-600">
+                        <p class="mb-4">We are lifelong musicians and have been creating custom songs for over 7 years. You can expect your story to get VIP treatment during the creation process, just like it deserves.</p>
+                        
+                        <ul class="feature-list">
+                            <li>Deep consultation about your story and vision</li>
+                            <li>Custom lyrics written specifically for your narrative</li>
+                            <li>Original melody composition tailored to your style preference</li>
+                            <li>Professional studio recording with high-quality vocals</li>
+                            <li>Multiple revision rounds to ensure perfection</li>
+                            <li>Delivery in multiple formats (MP3, WAV, etc.)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="section-header">
+                <h2 class="section-title">Testimonials</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial">
+                    <div class="rating">★★★★★</div>
+                    <blockquote class="text-gray-700 mb-4">
+                        "Sarah created the most beautiful song for our wedding anniversary. She captured 25 years of our love story perfectly. We were both in tears - it's absolutely magical!"
+                    </blockquote>
+                    <p class="font-bold" style="color: var(--navy);">- Jennifer & Mark</p>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="rating">★★★★★</div>
+                    <blockquote class="text-gray-700 mb-4">
+                        "The memorial song for my father was beyond my expectations. It helped our whole family heal and remember him in the most beautiful way. Thank you for this gift."
+                    </blockquote>
+                    <p class="font-bold" style="color: var(--navy);">- Michael T.</p>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="rating">★★★★★</div>
+                    <blockquote class="text-gray-700 mb-4">
+                        "I surprised my daughter with a song about her journey to college. She absolutely loved it and plays it every day. The quality and emotion in the song is incredible!"
+                    </blockquote>
+                    <p class="font-bold" style="color: var(--navy);">- Patricia L.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages -->
+    <section id="packages" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="section-header">
+                <h2 class="section-title">Song Packages</h2>
+                <p class="section-subtitle">Choose the perfect package for your custom song</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="package-card">
+                    <div class="text-2xl mb-4">🎵</div>
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--navy);">Harmony</h3>
+                    <p class="text-gray-600 mb-4">Perfect for simple, heartfelt messages</p>
+                    <div class="price">$197</div>
+                    <ul class="feature-list">
+                        <li>Custom lyrics & melody</li>
+                        <li>Solo vocal recording</li>
+                        <li>MP3 delivery</li>
+                        <li>2 revision rounds</li>
+                    </ul>
+                    <a href="#booking" class="btn-secondary w-full text-center mt-6">Choose Harmony</a>
+                </div>
+                
+                <div class="package-card package-popular">
+                    <div class="text-2xl mb-4">🎼</div>
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--navy);">Symphony</h3>
+                    <p class="text-gray-600 mb-4">Our most popular comprehensive package</p>
+                    <div class="price">$397</div>
+                    <ul class="feature-list">
+                        <li>Custom lyrics & melody</li>
+                        <li>Professional vocal & instrumental tracks</li>
+                        <li>Lyric sheet with chord charts</li>
+                        <li>Multiple format delivery</li>
+                        <li>3 revision rounds</li>
+                    </ul>
+                    <a href="#booking" class="btn-primary w-full text-center mt-6">Choose Symphony</a>
+                </div>
+                
+                <div class="package-card">
+                    <div class="text-2xl mb-4">🎭</div>
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--navy);">Masterpiece</h3>
+                    <p class="text-gray-600 mb-4">The ultimate musical experience</p>
+                    <div class="price">$697</div>
+                    <ul class="feature-list">
+                        <li>Everything in Symphony</li>
+                        <li>Music video with your photos</li>
+                        <li>Priority 48-hour delivery</li>
+                        <li>Physical CD with custom artwork</li>
+                        <li>Unlimited revisions</li>
+                    </ul>
+                    <a href="#booking" class="btn-secondary w-full text-center mt-6">Choose Masterpiece</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Listen & Subscribe -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <div class="section-header">
+                <p class="text-coral font-semibold text-lg mb-2">MUSIC SAMPLES</p>
+                <h2 class="section-title">LISTEN & SUBSCRIBE</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="w-48 h-48 mx-auto bg-gradient-to-br from-navy to-coral rounded-full flex items-center justify-center mb-8">
+                        <i class="fas fa-play text-white text-4xl"></i>
+                    </div>
+                </div>
+                <div class="text-left">
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--navy);">Hear the Magic</h3>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Listen to samples of our custom songs and discover how we transform stories into beautiful melodies. Subscribe to get inspiration and tips for creating your perfect song.
+                    </p>
+                    <div class="space-x-4">
+                        <a href="#" class="btn-primary">Listen to Samples</a>
+                        <a href="#" class="btn-secondary">Subscribe</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="section-header">
+                <h2 class="section-title">Shop for Music Lovers!</h2>
+                <p class="section-subtitle">Looking for something special for your music-loving friends? We've got you covered!</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="card text-center">
+                    <div class="w-full h-40 bg-gradient-to-br from-coral to-gold rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-file-audio text-white text-3xl"></i>
+                    </div>
+                    <h4 class="font-bold mb-2" style="color: var(--navy);">Custom Lullabies</h4>
+                    <p class="text-gray-600 text-sm mb-4">Personalized lullabies for babies</p>
+                    <a href="#" class="btn-secondary text-sm">Add to Cart</a>
+                </div>
+                
+                <div class="card text-center">
+                    <div class="w-full h-40 bg-gradient-to-br from-navy to-coral rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-compact-disc text-white text-3xl"></i>
+                    </div>
+                    <h4 class="font-bold mb-2" style="color: var(--navy);">Song Arrangement Service</h4>
+                    <p class="text-gray-600 text-sm mb-4">Professional arrangements</p>
+                    <a href="#" class="btn-secondary text-sm">Select Options</a>
+                </div>
+                
+                <div class="card text-center">
+                    <div class="w-full h-40 bg-gradient-to-br from-gold to-coral rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-gift text-white text-3xl"></i>
+                    </div>
+                    <h4 class="font-bold mb-2" style="color: var(--navy);">Song Gift Certificates</h4>
+                    <p class="text-gray-600 text-sm mb-4">Perfect gifts for any occasion</p>
+                    <a href="#" class="btn-secondary text-sm">Add to Cart</a>
+                </div>
+                
+                <div class="card text-center">
+                    <div class="w-full h-40 bg-gradient-to-br from-coral to-navy rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-music text-white text-3xl"></i>
+                    </div>
+                    <h4 class="font-bold mb-2" style="color: var(--navy);">Instrumental Versions</h4>
+                    <p class="text-gray-600 text-sm mb-4">Karaoke-style backing tracks</p>
+                    <a href="#" class="btn-secondary text-sm">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="section-header">
+                <p class="text-coral font-semibold text-lg mb-2">READY TO START?</p>
+                <h2 class="section-title">What We Need From You</h2>
+                <p class="section-subtitle">To create your perfect custom song, we'll need the following information:</p>
+            </div>
+            
+            <div class="grid md:grid-cols-5 gap-8">
+                <div class="text-center">
+                    <div class="requirement-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h4 class="font-bold mb-2" style="color: var(--navy);">Your Story</h4>
+                    <p class="text-gray-600 text-sm">Share the memories, emotions, or message you want in the song</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="requirement-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h4 class="font-bold mb-2" style="color: var(--navy);">Music Style</h4>
+                    <p class="text-gray-600 text-sm">Let us know your preferred genre or musical style</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="requirement-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4 class="font-bold mb-2" style="color: var(--navy);">Timeline</h4>
+                    <p class="text-gray-600 text-sm">When do you need your song completed?</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="requirement-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4 class="font-bold mb-2" style="color: var(--navy);">Recipient Info</h4>
+                    <p class="text-gray-600 text-sm">Tell us about who this song is for</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="requirement-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h4 class="font-bold mb-2" style="color: var(--navy);">Vocal Preference</h4>
+                    <p class="text-gray-600 text-sm">Male, female, or duet vocals?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="section-header">
+                <p class="text-coral font-semibold text-lg mb-2">KEEP UPDATED</p>
+                <h2 class="section-title">Latest Blog Posts</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <article class="blog-post">
+                    <div class="blog-date">8 Dec</div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-3" style="color: var(--navy);">
+                            5 Tips for Writing Meaningful Song Lyrics
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            Discover how to transform your personal experiences into powerful lyrics that resonate with listeners. Learn the techniques professional songwriters use to create emotional connections...
+                        </p>
+                    </div>
+                </article>
+                
+                <article class="blog-post">
+                    <div class="blog-date">5 Dec</div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-3" style="color: var(--navy);">
+                            The Perfect Song for Every Occasion
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            From weddings to memorials, birthday celebrations to graduations - explore how different musical styles and approaches work best for various life events and celebrations...
+                        </p>
+                    </div>
+                </article>
+                
+                <article class="blog-post">
+                    <div class="blog-date">1 Dec</div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-3" style="color: var(--navy);">
+                            Why Custom Songs Make the Best Gifts
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            Unlike material gifts that may be forgotten, a custom song becomes a treasured keepsake that grows more meaningful over time. Here's why personalized music touches hearts...
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Artist -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="section-header">
+                <p class="text-coral font-semibold text-lg mb-2">SONGWRITER & MUSICIAN</p>
+                <h2 class="section-title">Meet Your Musical Storyteller</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center">
+                    <div class="w-80 h-80 mx-auto bg-gradient-to-br from-navy to-coral rounded-full flex items-center justify-center mb-8">
+                        <i class="fas fa-user-music text-white text-6xl"></i>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--navy);">Meet Sarah</h3>
+                    <p class="text-lg text-gray-600 mb-6">
+                        As a songwriter and musician myself, I understand the power of music to capture emotions and preserve memories. I've been creating custom songs for over 7 years, helping families and couples transform their most precious moments into beautiful, lasting melodies.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        My approach is deeply personal - I take the time to really understand your story, your emotions, and your vision. Whether it's a love song for your wedding, a tribute to honor someone special, or a celebration of a milestone moment, I craft each song with the same care and attention I'd give to my own family's memories.
+                    </p>
+                    <div class="space-x-4">
+                        <a href="#contact" class="btn-primary">Get In Touch</a>
+                        <a href="#" class="btn-secondary">View Portfolio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ready to Create Magic -->
+    <section id="booking" class="py-20" style="background: linear-gradient(135deg, var(--navy) 0%, var(--coral) 100%);">
+        <div class="container mx-auto px-6 text-center text-white">
+            <h2 class="text-4xl font-bold mb-6">Ready to create magic?</h2>
+            <p class="text-xl mb-8">Transform your story into a song they'll never forget. Start your custom song today.</p>
+            <a href="#contact" class="btn-primary text-lg">Start Your Song Journey</a>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <footer id="contact">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="footer-section">
+                    <h3>Our Location</h3>
+                    <p class="text-gray-300 mb-4">
+                        We are located in Nashville, TN - the heart of music city, and work with clients worldwide through our online platform.
+                    </p>
+                    <div class="text-gray-300">
+                        <p><i class="fas fa-envelope mr-2"></i> hello@soulsoundstudio.com</p>
+                        <p><i class="fas fa-phone mr-2"></i> +1 (555) 123-SONG</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> Nashville, TN</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="text-gray-300 space-y-2">
+                        <li><a href="#services" class="hover:text-coral">Services</a></li>
+                        <li><a href="#packages" class="hover:text-coral">Packages</a></li>
+                        <li><a href="#about" class="hover:text-coral">About</a></li>
+                        <li><a href="#" class="hover:text-coral">Portfolio</a></li>
+                        <li><a href="#" class="hover:text-coral">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons mb-4">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-spotify"></i></a>
+                    </div>
+                    <p class="text-gray-300">Stay connected for musical inspiration and behind-the-scenes content!</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Subscribe to SoulMail</h3>
+                    <p class="text-gray-300 mb-4">We send emails once a week with musical inspiration and tips. We never send spam!</p>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="Your email address" 
+                               class="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:border-coral">
+                        <button type="submit" class="btn-primary w-full">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 SoulSound Studio. All rights reserved. Creating musical memories, one story at a time.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Smooth Scrolling Script -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active class to navigation on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-coral');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('text-coral');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
