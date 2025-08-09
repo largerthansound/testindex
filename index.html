@@ -51,38 +51,26 @@
             50% { transform: translateY(-20px) rotate(180deg); }
         }
         
-        .vinyl-record {
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, #1a1a1a 30%, #333 31%, #333 40%, #1a1a1a 41%);
-            border-radius: 50%;
-            position: relative;
-            animation: spin 10s linear infinite;
-        }
-        
-        .vinyl-record::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 20px;
-            height: 20px;
-            background: var(--gold);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-        }
-        
-      @keyframes spin {
-    0% { transform: rotate(0deg); }
-    20% { transform: rotate(45deg); }
-    40% { transform: rotate(180deg); }
-    60% { transform: rotate(405deg); }
-    80% { transform: rotate(720deg); }
-    100% { transform: rotate(1080deg); }
+      .vinyl-record {
+  width: 200px;
+  height: 200px;
+  background-image: url('https://github.com/user-attachments/assets/0797962c-9d0a-4081-9ae6-25b4d04ee339');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  margin: 50px auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .vinyl-record:hover {
-    animation: spin 2s ease-in-out infinite;
+  animation: spin 2s linear infinite;
+}
 }
       
       /* Spin animation keyframes */
@@ -483,6 +471,7 @@
 </html>
     
     
+
 
 
 
