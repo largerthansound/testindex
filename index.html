@@ -72,22 +72,20 @@
             transform: translate(-50%, -50%);
         }
         
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-      
-        .vinyl-record {
-  width: 200px; /* Keep your existing size */
-  height: 200px;
-  background-image: url('https://your-record-image.png'); /* Replace with your record image URL */
-  background-size: cover;
-  background-position: center;
-  margin: 0 auto;
-  transition: transform 0.3s ease; /* Smooth when hover ends */
+      @keyframes spin {
+    0% { transform: rotate(0deg); }
+    20% { transform: rotate(45deg); }
+    40% { transform: rotate(180deg); }
+    60% { transform: rotate(405deg); }
+    80% { transform: rotate(720deg); }
+    100% { transform: rotate(1080deg); }
 }
 
-/* Spin animation keyframes */
+.vinyl-record:hover {
+    animation: spin 2s ease-in-out infinite;
+}
+      
+      /* Spin animation keyframes */
 @keyframes spin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
@@ -485,6 +483,7 @@
 </html>
     
     
+
 
 
 
