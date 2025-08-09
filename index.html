@@ -76,7 +76,27 @@
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-        
+      
+        .vinyl-record {
+  width: 200px; /* Keep your existing size */
+  height: 200px;
+  background-image: url('https://your-record-image.png'); /* Replace with your record image URL */
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+  transition: transform 0.3s ease; /* Smooth when hover ends */
+}
+
+/* Spin animation keyframes */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Spin on hover */
+.vinyl-record:hover {
+  animation: spin 2s linear infinite;
+}
         .wave-animation {
             background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.5), transparent);
             animation: wave 2s ease-in-out infinite;
@@ -465,6 +485,7 @@
 </html>
     
     
+
 
 
 
