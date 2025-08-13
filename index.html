@@ -40,11 +40,39 @@
             box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
         }
         
-        .music-note {
-            position: absolute;
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-        }
+     /* --- Brighter + faster floating notes --- */
+.music-note{
+  position:absolute;
+  opacity:.55;                 /* was 0.1 */
+  color:#FCD34D;               /* gold */
+  font-size:var(--size,28px);  /* for Font Awesome icons */
+  line-height:1;
+  z-index:10;
+  pointer-events:none;
+  /* glow */
+  text-shadow:
+    0 0 6px rgba(252,211,77,.8),
+    0 0 12px rgba(252,211,77,.5);
+  /* smooth, faster motion */
+  animation: float var(--dur,2.6s) var(--ease,ease-in-out) var(--delay,0s) infinite;
+  will-change: transform;
+  mix-blend-mode: screen;      /* helps pop on dark gradients */
+}
+
+/* Replace the old float keyframes */
+@keyframes float{
+  0%   { transform: translateY(0)        translateX(0)    rotate(0deg); }
+  50%  { transform: translateY(-42px)    translateX(12px) rotate(18deg);}
+  100% { transform: translateY(0)        translateX(0)    rotate(0deg); }
+}
+
+/* Stagger speed/size per note for a nicer feel (edit counts to match how many you have) */
+.music-note:nth-child(1){ --dur:2.0s; --size:26px; --delay:-.2s; }
+.music-note:nth-child(2){ --dur:2.3s; --size:30px; --delay:-.5s; }
+.music-note:nth-child(3){ --dur:2.6s; --size:22px; --delay:-.1s; }
+.music-note:nth-child(4){ --dur:2.1s; --size:28px; --delay:-.35s;}
+.music-note:nth-child(5){ --dur:2.4s; --size:24px; --delay:-.6s; }
+
         
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -482,6 +510,7 @@
 </html>
     
     
+
 
 
 
