@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Same head stack & styles as your landing page -->
+  <!-- Same head & styles as landing page -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Song Samples | Larger Than Sound</title>
@@ -29,30 +29,145 @@
   </style>
 </head>
 <body>
-  <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <a href="../index.html#home" class="inline-flex items-center text-sm text-yellow-300 hover:opacity-80">
       <i class="fa-solid fa-arrow-left mr-2"></i> Back to Home
     </a>
 
-    <header class="mt-6 text-center">
-      <h1 class="brand-font text-4xl md:text-5xl font-bold gradient-text">Song Samples</h1>
-      <p class="opacity-90 mt-3">A few flavours — more coming soon.</p>
-    </header>
+    <!-- Title -->
+    <div class="text-center mt-6 mb-12">
+      <h1 class="brand-font text-4xl md:text-5xl font-bold gradient-text">Featured Song Samples</h1>
+      <p class="opacity-90 mt-3">These match our three packages in vibe and production.</p>
+    </div>
 
-    <div class="grid md:grid-cols-3 gap-6 mt-8">
-      <div class="glass-card p-6">
-        <h3 class="font-semibold text-lg mb-3">Romantic Ballad</h3>
-        <audio controls class="w-full"><source src="" type="audio/mpeg"></audio>
+    <!-- 3 cards (match your package cards) -->
+    <div class="grid md:grid-cols-3 gap-8 items-stretch">
+      <!-- Melody Starter -->
+      <div class="pricing-card glass-card rounded-3xl p-8 pt-12 text-center min-h-[650px] flex flex-col">
+        <div>
+          <div class="mb-6">
+            <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-music text-2xl text-white"></i>
+            </div>
+            <h3 class="brand-font text-2xl font-bold">Melody Starter</h3>
+            <div class="text-sm opacity-80 mt-1">Romantic Ballad</div>
+          </div>
+
+          <img src="https://github.com/user-attachments/assets/4a65b776-f660-48e2-9d59-d4b749a6ed66" alt="Starter sample" class="w-full h-56 object-cover rounded-xl mb-4">
+
+          <ul class="text-left text-white opacity-90 space-y-2 mb-4">
+            <li><i class="fas fa-check text-yellow-300 mr-2"></i>Custom lyrics & melody</li>
+            <li><i class="fas fa-check text-yellow-300 mr-2"></i>Warm acoustic feel</li>
+            <li><i class="fas fa-check text-yellow-300 mr-2"></i>MP3 delivery</li>
+          </ul>
+
+          <audio controls class="w-full">
+            <source src="" type="audio/mpeg">
+          </audio>
+        </div>
+
+        <div class="mt-auto pt-6">
+          <a href="../order.html?package=melody"
+             class="w-full text-center bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-6 py-3 rounded-full font-semibold text-lg hover:shadow-2xl transform hover:scale-105">
+            Create Melody
+          </a>
+        </div>
       </div>
-      <div class="glass-card p-6">
-        <h3 class="font-semibold text-lg mb-3">Upbeat Celebration</h3>
-        <audio controls class="w-full"><source src="" type="audio/mpeg"></audio>
+
+      <!-- Harmony Deluxe -->
+      <div class="pricing-card glass-card rounded-3xl p-8 pt-12 text-center min-h-[650px] flex flex-col border-2 border-yellow-400 relative">
+        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-6 py-2 rounded-full font-bold text-sm z-10">
+          MOST POPULAR
+        </div>
+
+        <div>
+          <div class="mb-6">
+            <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-star text-2xl text-black"></i>
+            </div>
+            <h3 class="brand-font text-2xl font-bold">Harmony Deluxe</h3>
+            <div class="text-sm opacity-80 mt-1">Upbeat Celebration</div>
+          </div>
+
+          <img src="https://images.unsplash.com/photo-1580677536003-7735c747c140?q=80&w=1169&auto=format&fit=crop" alt="Deluxe sample" class="w-full h-56 object-cover rounded-xl mb-4">
+
+          <ul class="text-left text-white opacity-90 space-y-2 mb-4">
+            <li><i class="fas fa-check text-yellow-300 mr-2"></i>Vocal + instrumental stems</li>
+            <li><i class="fas fa-check text-yellow-300 mr-2"></i>Designed lyric PDF</li>
+            <li><i class="fas fa-check text-yellow-300 mr-2"></i>Priority turnaround</li>
+          </ul>
+
+          <audio controls class="w-full">
+            <source src="" type="audio/mpeg">
+          </audio>
+        </div>
+
+        <div class="mt-auto pt-6">
+          <a href="../order.html?package=harmony"
+             class="w-full text-center bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-6 py-3 rounded-full font-semibold text-lg hover:shadow-2xl transform hover:scale-105">
+            Create Deluxe
+          </a>
+        </div>
       </div>
-      <div class="glass-card p-6">
-        <h3 class="font-semibold text-lg mb-3">Sentimental Acoustic</h3>
-        <audio controls class="w-full"><source src="" type="audio/mpeg"></audio>
+
+      <!-- Symphony Ultimate -->
+      <div class="pricing-card glass-card rounded-3xl p-8 pt-12 text-center min-h-[650px] flex flex-col">
+        <div>
+          <div class="mb-6">
+            <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-crown text-2xl text-white"></i>
+            </div>
+            <h3 class="brand-font text-2xl font-bold">Symphony Ultimate</h3>
+            <div class="text-sm opacity-80 mt-1">Sentimental Acoustic</div>
+          </div>
+
+          <img src="https://images.unsplash.com/photo-1647722391368-1a70af681d42?q=80&w=687&auto=format&fit=crop" alt="Ultimate sample" class="w-full h-56 object-cover object-top rounded-xl mb-4">
+
+          <ul class="text-left text-white opacity-90 space-y-2 mb-4">
+            <li><i class="fas fa-check text-yellow-300 mr-2"></i>Custom video montage</li>
+            <li><i class="fas fa-check text-yellow-300 mr-2"></i>Premium printed lyrics</li>
+            <li><i class="fas fa-check text-yellow-300 mr-2"></i>Rush delivery + revisions</li>
+          </ul>
+
+          <audio controls class="w-full">
+            <source src="" type="audio/mpeg">
+          </audio>
+        </div>
+
+        <div class="mt-auto pt-6">
+          <a href="../order.html?package=symphony"
+             class="w-full text-center bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-6 py-3 rounded-full font-semibold text-lg hover:shadow-2xl transform hover:scale-105">
+            Create Ultimate
+          </a>
+        </div>
       </div>
     </div>
+
+    <!-- Optional: “How it works” section to match landing page steps -->
+    <section class="mt-20">
+      <div class="text-center mb-10">
+        <h2 class="brand-font text-3xl md:text-4xl font-bold gradient-text">How It Works</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="glass-card p-6 text-center">
+          <div class="w-12 h-12 rounded-full bg-yellow-400 text-black flex items-center justify-center mx-auto mb-3 font-bold">1</div>
+          <h3 class="font-semibold text-lg mb-2">Share Your Story</h3>
+          <p class="opacity-90">Tell us who it’s for and what you want them to feel.</p>
+        </div>
+        <div class="glass-card p-6 text-center">
+          <div class="w-12 h-12 rounded-full bg-yellow-400 text-black flex items-center justify-center mx-auto mb-3 font-bold">2</div>
+          <h3 class="font-semibold text-lg mb-2">We Write & Produce</h3>
+          <p class="opacity-90">We craft the lyrics, melody and full production.</p>
+        </div>
+        <div class="glass-card p-6 text-center">
+          <div class="w-12 h-12 rounded-full bg-yellow-400 text-black flex items-center justify-center mx-auto mb-3 font-bold">3</div>
+          <h3 class="font-semibold text-lg mb-2">Deliver & Celebrate</h3>
+          <p class="opacity-90">You get the files and wow them with a bespoke song.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER goes here (see section 2 below) -->
   </main>
 </body>
 </html>
