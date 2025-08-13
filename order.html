@@ -1,161 +1,92 @@
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Larger Than Sound - Because Your Story Deserves a Soundtrack</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-purple: #6B46C1;
-            --deep-purple: #4C1D95;
-            --gold: #F59E0B;
-            --light-gold: #FCD34D;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--primary-purple) 50%, var(--gold) 100%);
-            min-height: 100vh;
-        }
-        
-        .brand-font {
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, var(--gold), var(--light-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .glass-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
-        }
-        
-        .music-note {
-            position: absolute;
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-        
-.vinyl-record {
-  width: 200px;
-  height: 200px;
-  background-image: url('https://github.com/user-attachments/assets/bd894f61-b573-440d-ba31-94e8f19ec261');
-  background-size: cover;
-  background-position: center;
-  border-radius: 50%;
-  margin: 80px auto 50px auto;  /* controls vertical and horizontal centering */
-  position: relative;
-  left: -30px;  /* move left */
-  top: -20px;   /* move up */
-  transition: transform 0.3s ease;
-  animation: spin 4s linear infinite;
-}
+  <!-- Meta -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Order Your Custom Song | Larger Than Sound</title>
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+  <!-- Critical for project sites: make all relative URLs resolve under /testindex/ -->
+  <base href="/testindex/">
 
-           /* Spin animation keyframes */
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
+  <!-- Match index.html stack -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-/* Spin on hover */
-.vinyl-record:hover {
-  animation: spin 2s linear infinite;
-}
-        .wave-animation {
-            background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.5), transparent);
-            animation: wave 2s ease-in-out infinite;
-        }
-        
-        @keyframes wave {
-            0%, 100% { transform: scaleX(1); opacity: 0.5; }
-            50% { transform: scaleX(1.5); opacity: 1; }
-        }
-        
-        .pricing-card {
-            transition: all 0.3s ease;
-            transform-style: preserve-3d;
-        }
-        
-        .pricing-card:hover {
-            transform: translateY(-10px) rotateY(5deg);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-        }
-        
-        .beat-pulse {
-            animation: beat 1.5s ease-in-out infinite;
-        }
-        
-        @keyframes beat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        
-        .sound-wave {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2px;
-        }
-        
-        .sound-bar {
-            width: 4px;
-            background: var(--gold);
-            border-radius: 2px;
-            animation: soundWave 1s ease-in-out infinite;
-        }
-        
-        .sound-bar:nth-child(1) { height: 20px; animation-delay: 0s; }
-        .sound-bar:nth-child(2) { height: 35px; animation-delay: 0.1s; }
-        .sound-bar:nth-child(3) { height: 25px; animation-delay: 0.2s; }
-        .sound-bar:nth-child(4) { height: 40px; animation-delay: 0.3s; }
-        .sound-bar:nth-child(5) { height: 30px; animation-delay: 0.4s; }
-        
-        @keyframes soundWave {
-            0%, 100% { transform: scaleY(0.5); opacity: 0.5; }
-            50% { transform: scaleY(1); opacity: 1; }
-        }
-    </style>
+  <!-- Optional shared file if you create it later -->
+  <link rel="stylesheet" href="assets/site.css">
+
+  <!-- Inline fallback for brand classes -->
+  <style>
+    :root { color-scheme: dark; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    .glass-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 10px 40px rgba(0,0,0,.35);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 1.5rem;
+    }
+    .brand-font { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    .gradient-text { background: linear-gradient(90deg, #fde047, #f59e0b); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  </style>
 </head>
-<body>
-  <header>
-    <a href="index.html#home">← Back to Home</a>
-  </header>
-
-  <main class="min-h-screen bg-gradient-to-b from-neutral-950 to-black text-white">
-  <div class="max-w-5xl mx-auto px-4 py-12">
+<body class="bg-neutral-950 text-white">
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <a href="index.html#home" class="inline-flex items-center text-sm text-yellow-400 hover:opacity-80">
       <i class="fa-solid fa-arrow-left mr-2"></i> Back to Home
     </a>
 
-    <h1 class="text-4xl font-extrabold mt-6">Order Your Custom Song</h1>
-    <p class="text-white/70 mt-2">Tell us your story and choose a package — we’ll take it from here.</p>
+    <header class="mt-6">
+      <h1 class="brand-font text-4xl font-extrabold">Order Your Custom Song</h1>
+      <p class="text-white/70 mt-2">Tell us your story and choose a package — we’ll take it from here.</p>
+    </header>
 
-    <div class="glass-card mt-8 rounded-3xl p-6 md:p-10 shadow-2xl border border-white/10 bg-white/5 backdrop-blur">
-      <!-- Replace the src with your Google Form's embed link -->
-      <iframe 
-        src="<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdlVzFl43PPcpohFebQ6ZEErA-4kHz0225WbrN7erhV0YKtSA/viewform?embedded=true" width="640" height="3170" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>"
-        class="w-full h-[1400px] md:h-[1200px] rounded-2xl border-0"
+    <section class="glass-card mt-8 p-6 md:p-10">
+      <!-- 🔁 REPLACE the src below with your real Google Forms *embed* URL (Send → <> Embed) -->
+      <iframe
+        id="orderForm"
+        src="YOUR_GOOGLE_FORM_EMBED_URL"
+        title="Order form"
+        class="w-full h-[1500px] md:h-[1300px] rounded-2xl border-0"
         loading="lazy"
       ></iframe>
-    </div>
-  </div>
-</main>
+    </section>
+
+    <p class="text-xs text-white/50 mt-4">
+      We’ll email you next steps (payment + timeline) after you submit.
+    </p>
+  </main>
+
+  <!-- Optional: preselect package via ?package=melody|harmony|symphony -->
+  <!-- How:
+       In Google Forms → More (⋮) → Get pre-filled link → pick a package → Get link.
+       Copy the URL up to (but not including) the value so it ends with ...entry.123456=  -->
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const pkg = (params.get('package') || '').toLowerCase();
+      if (!pkg) return;
+
+      const labelMap = {
+        melody: 'Melody Starter',
+        harmony: 'Harmony Deluxe',
+        symphony: 'Symphony Ultimate'
+      };
+      const label = labelMap[pkg];
+      if (!label) return;
+
+      // ⬇️ PASTE your “prefilled base without value” here (must include entry.#######= at the end)
+      const PREFILLED_BASE_WITHOUT_VALUE = '';
+
+      if (PREFILLED_BASE_WITHOUT_VALUE) {
+        const iframe = document.getElementById('orderForm');
+        iframe.src = PREFILLED_BASE_WITHOUT_VALUE + encodeURIComponent(label);
+      }
+    })();
+  </script>
+</body>
 </html>
