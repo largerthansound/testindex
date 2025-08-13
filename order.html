@@ -139,75 +139,23 @@
     <a href="index.html#home">← Back to Home</a>
   </header>
 
-  <main class="container">
-    <h1>Order Your Custom Song</h1>
-    <p class="muted">Tell us a little about the story and pick your package. We’ll take it from there.</p>
+  <main class="min-h-screen bg-gradient-to-b from-neutral-950 to-black text-white">
+  <div class="max-w-5xl mx-auto px-4 py-12">
+    <a href="index.html#home" class="inline-flex items-center text-sm text-yellow-400 hover:opacity-80">
+      <i class="fa-solid fa-arrow-left mr-2"></i> Back to Home
+    </a>
 
-    <div class="card">
-      <form id="order-form" action="#" method="post">
-        <!-- If you use Typeform/Tally/Google Form, replace action with their URL and set method="get" -->
-        <div class="row">
-          <div>
-            <label for="buyerName">Your name</label>
-            <input id="buyerName" name="buyerName" required>
-          </div>
+    <h1 class="text-4xl font-extrabold mt-6">Order Your Custom Song</h1>
+    <p class="text-white/70 mt-2">Tell us your story and choose a package — we’ll take it from here.</p>
 
-          <div>
-            <label for="recipient">Who is the song for?</label>
-            <input id="recipient" name="recipient" placeholder="e.g., Partner, Mum, Best friend" required>
-          </div>
-
-          <div>
-            <label for="occasion">Occasion</label>
-            <input id="occasion" name="occasion" placeholder="e.g., Birthday, Anniversary, Graduation">
-          </div>
-
-          <div>
-            <label for="email">Your email (delivery)</label>
-            <input id="email" name="email" type="email" required>
-          </div>
-
-          <div>
-            <label for="story">Tell us the story</label>
-            <textarea id="story" name="story" rows="6" placeholder="Key memories, names, phrases, feelings…" required></textarea>
-          </div>
-        </div>
-
-        <h2>Choose Your Package</h2>
-        <div role="group" aria-labelledby="package" style="margin: 8px 0 16px;">
-          <label class="pill">
-            <input type="radio" id="pkg-melody" name="package" value="melody"> Melody Starter — $147
-          </label>
-          <label class="pill">
-            <input type="radio" id="pkg-harmony" name="package" value="harmony"> Harmony Deluxe — $247
-          </label>
-          <label class="pill">
-            <input type="radio" id="pkg-symphony" name="package" value="symphony"> Symphony Ultimate — $447
-          </label>
-        </div>
-
-        <!-- If you’re using Stripe Checkout later, you can swap this for a link/button -->
-        <button class="btn" type="submit">Submit Order Details</button>
-        <p class="muted">After submitting, we’ll email you next steps (payment + timelines).</p>
-      </form>
+    <div class="glass-card mt-8 rounded-3xl p-6 md:p-10 shadow-2xl border border-white/10 bg-white/5 backdrop-blur">
+      <!-- Replace the src with your Google Form's embed link -->
+      <iframe 
+        src="<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdlVzFl43PPcpohFebQ6ZEErA-4kHz0225WbrN7erhV0YKtSA/viewform?embedded=true" width="640" height="3170" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>"
+        class="w-full h-[1400px] md:h-[1200px] rounded-2xl border-0"
+        loading="lazy"
+      ></iframe>
     </div>
-  </main>
-
-  <script>
-    // Auto-select package based on ?package=melody|harmony|symphony
-    (function () {
-      const p = new URLSearchParams(window.location.search).get('package');
-      const map = { melody: 'pkg-melody', harmony: 'pkg-harmony', symphony: 'pkg-symphony' };
-      const targetId = map[(p || '').toLowerCase()];
-      if (targetId) {
-        const el = document.getElementById(targetId);
-        if (el) el.checked = true;
-      }
-    })();
-
-    // If you’re forwarding to Typeform/Tally/Google Forms:
-    // - Change <form action="https://docs.google.com/forms/d/e/1FAIpQLSdlVzFl43PPcpohFebQ6ZEErA-4kHz0225WbrN7erhV0YKtSA/viewform?usp=dialog" method="get">
-    // - Ensure your external form has matching field names (buyerName, recipient, occasion, email, story, package).
-  </script>
-</body>
+  </div>
+</main>
 </html>
