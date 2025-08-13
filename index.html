@@ -162,6 +162,21 @@
             0%, 100% { transform: scaleY(0.5); opacity: 0.5; }
             50% { transform: scaleY(1); opacity: 1; }
         }
+
+/* Center ONLY the vinyl in the CTA section */
+#cta-magic .vinyl-record{
+  position: static !important;   /* cancels any left/top offsets from global .vinyl-record */
+  left: auto !important;
+  top: auto !important;
+  display: block;
+  width: 160px;                  /* tweak size to taste */
+  height: 160px;
+  margin: 40px auto 32px !important; /* centers horizontally */
+  border-radius: 50%;
+}
+
+}
+        
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -430,7 +445,7 @@
   </div>
 </section>
     <!-- CTA Section -->
-    <section class="py-20 relative">
+    <section id="cta-magic" class="py-20 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="glass-card rounded-3xl p-12">
                 <div class="vinyl-record w-24 h-24 block mx-auto mb-8 origin-center"></div>
@@ -510,6 +525,7 @@
 </html>
     
     
+
 
 
 
