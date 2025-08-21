@@ -33,7 +33,7 @@
 
 <body class="min-h-screen flex flex-col">
   <!-- flex column: footer will sit at bottom on short pages -->
-  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 pb-32">
     <a href="../index.html#home" class="inline-flex items-center text-sm text-yellow-300 hover:opacity-80">
       <i class="fa-solid fa-arrow-left mr-2"></i> Back to Home
     </a>
@@ -148,9 +148,9 @@
     </div>
   </main>
 
-  <!-- Single footer (moved after </main>) -->
-  <footer class="mt-16 border-t border-white border-opacity-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid md:grid-cols-3 gap-6 items-center">
+  <!-- Sticky footer -->
+  <footer class="fixed bottom-0 left-0 w-full z-50 border-t border-white border-opacity-20 bg-white/10 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 grid md:grid-cols-3 gap-6 items-center">
       <div class="text-sm opacity-80">
         <div class="brand-font text-xl font-bold">Larger Than Sound</div>
         <div class="mt-2">Because your story deserves a soundtrack.</div>
